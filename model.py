@@ -158,6 +158,8 @@ class Model:
                 self.pipe.controlnet.set_attn_processor(
                     processor=self.controlnet_attn_proc)
 
+        self.pipe.enable_attention_slicing()
+
         added_prompt = 'best quality, extremely detailed'
         negative_prompts = 'longbody, lowres, bad anatomy, bad hands, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality'
 
@@ -217,6 +219,8 @@ class Model:
                 self.pipe.controlnet.set_attn_processor(
                     processor=self.controlnet_attn_proc)
 
+        self.pipe.enable_attention_slicing()
+            
         video_path = gradio_utils.motion_to_video_path(
             video_path) if 'Motion' in video_path else video_path
 
@@ -286,6 +290,8 @@ class Model:
             self.pipe.controlnet.set_attn_processor(
                 processor=self.controlnet_attn_proc)
 
+        self.pipe.enable_attention_slicing()
+
         added_prompt = 'best quality, extremely detailed'
         negative_prompts = 'longbody, lowres, bad anatomy, bad hands, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality'
 
@@ -352,6 +358,9 @@ class Model:
                                 chunk_size=chunk_size,
                                 merging_ratio=merging_ratio
                                 )
+            
+            self.pipe.enable_attention_slicing()
+
         return utils.create_video(result, fps, path=save_path, watermark=gradio_utils.logo_name_to_path(watermark))
 
     def process_text2video(self,
@@ -387,6 +396,8 @@ class Model:
                 self.pipe.unet.set_attn_processor(
                     processor=self.text2video_attn_proc)
         self.generator.manual_seed(seed)
+
+        self.pipe.enable_attention_slicing()
 
         added_prompt = "high quality, HD, 8K, trending on artstation, high focus, dramatic lighting"
         negative_prompts = 'longbody, lowres, bad anatomy, bad hands, missing fingers, extra digit, fewer difits, cropped, worst quality, low quality, deformed body, bloated, ugly, unrealistic'
