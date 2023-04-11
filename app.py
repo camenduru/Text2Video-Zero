@@ -40,7 +40,7 @@ with gr.Blocks(css='style.css') as demo:
         </h1>
         <h2 style="font-weight: 450; font-size: 1rem; margin: 0rem">
         Levon Khachatryan<sup>1*</sup>, Andranik Movsisyan<sup>1*</sup>, Vahram Tadevosyan<sup>1*</sup>, Roberto Henschel<sup>1*</sup>, Zhangyang Wang<sup>1,2</sup>, Shant Navasardyan<sup>1</sup>
-        and <a href="https://www.humphreyshi.com/home">Humphrey Shi</a><sup>1,3,4</sup>
+        and <a href="https://www.humphreyshi.com/home" style="color:white;">Humphrey Shi</a><sup>1,3,4</sup>
         </h2>
         <h2 style="font-weight: 450; font-size: 1rem; margin: 0rem">
         <sup>1</sup>Picsart AI Resarch (PAIR), <sup>2</sup>UT Austin, <sup>3</sup>U of Oregon, <sup>4</sup>UIUC
