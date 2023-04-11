@@ -41,7 +41,7 @@ def create_demo(model: Model):
                 run_button = gr.Button(label='Run')
                 with gr.Accordion('Advanced options', open=False):
                     watermark = gr.Radio(["Picsart AI Research", "Text2Video-Zero",
-                                         "None"], label="Watermark", value='Picsart AI Research')
+                                         "None"], label="Watermark", value='None')
                     image_resolution = gr.Slider(label='Image Resolution',
                                                  minimum=256,
                                                  maximum=1024,

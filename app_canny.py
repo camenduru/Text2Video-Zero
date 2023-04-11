@@ -45,7 +45,7 @@ def create_demo(model: Model):
                 run_button = gr.Button(label='Run')
                 with gr.Accordion('Advanced options', open=False):
                     watermark = gr.Radio(["Picsart AI Research", "Text2Video-Zero",
-                                         "None"], label="Watermark", value='Picsart AI Research')
+                                         "None"], label="Watermark", value='None')
                     chunk_size = gr.Slider(
                         label="Chunk size", minimum=2, maximum=16, value=8, step=1, visible=not on_huggingspace,
                         info="Number of frames processed at once. Reduce for lower memory usage.")
