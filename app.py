@@ -20,11 +20,23 @@ args = parser.parse_args()
 
 with gr.Blocks(css='style.css') as demo:
 
+    with gr.Tab('Zero-Shot Text2Video'):
+        create_demo_text_to_video(model)
+    with gr.Tab('Video Instruct Pix2Pix'):
+        create_demo_pix2pix_video(model)
+    with gr.Tab('Pose Conditional'):
+        create_demo_pose(model)
+    with gr.Tab('Edge Conditional'):
+        create_demo_canny(model)
+    with gr.Tab('Edge Conditional and Dreambooth Specialized'):
+        create_demo_canny_db(model)
+    '''
+    '''
     gr.HTML(
         """
         <div style="text-align: center; max-width: 1200px; margin: 20px auto;">
         <h1 style="font-weight: 900; font-size: 3rem; margin: 0rem">
-            <a href="https://github.com/Picsart-AI-Research/Text2Video-Zero" style="color:blue;">Text2Video-Zero</a> 
+            <a href="https://github.com/Picsart-AI-Research/Text2Video-Zero" style="color:white;">Text2Video-Zero</a> 
         </h1>
         <h2 style="font-weight: 450; font-size: 1rem; margin: 0rem">
         Levon Khachatryan<sup>1*</sup>, Andranik Movsisyan<sup>1*</sup>, Vahram Tadevosyan<sup>1*</sup>, Roberto Henschel<sup>1*</sup>, Zhangyang Wang<sup>1,2</sup>, Shant Navasardyan<sup>1</sup>
@@ -34,8 +46,8 @@ with gr.Blocks(css='style.css') as demo:
         <sup>1</sup>Picsart AI Resarch (PAIR), <sup>2</sup>UT Austin, <sup>3</sup>U of Oregon, <sup>4</sup>UIUC
         </h2>
         <h2 style="font-weight: 450; font-size: 1rem; margin: 0rem">
-        [<a href="https://arxiv.org/abs/2303.13439" style="color:blue;">arXiv</a>] 
-        [<a href="https://github.com/Picsart-AI-Research/Text2Video-Zero" style="color:blue;">GitHub</a>]
+        [<a href="https://arxiv.org/abs/2303.13439" style="color:white;">arXiv</a>] 
+        [<a href="https://github.com/Picsart-AI-Research/Text2Video-Zero" style="color:white;">GitHub</a>]
         </h2>
         <h2 style="font-weight: 450; font-size: 1rem; margin-top: 0.5rem; margin-bottom: 0.5rem">
         We built <b>Text2Video-Zero</b>,  a first zero-shot text-to-video synthesis diffusion framework, that enables low cost yet high-quality and consistent video generation with only pre-trained text-to-image diffusion models without any training on videos or optimization!
@@ -53,18 +65,6 @@ with gr.Blocks(css='style.css') as demo:
         <img style="margin-top: 0em; margin-bottom: 0em" src="https://bit.ly/3gLdBN6" alt="Duplicate Space"></a>
         </p>""")
 
-    with gr.Tab('Zero-Shot Text2Video'):
-        create_demo_text_to_video(model)
-    with gr.Tab('Video Instruct Pix2Pix'):
-        create_demo_pix2pix_video(model)
-    with gr.Tab('Pose Conditional'):
-        create_demo_pose(model)
-    with gr.Tab('Edge Conditional'):
-        create_demo_canny(model)
-    with gr.Tab('Edge Conditional and Dreambooth Specialized'):
-        create_demo_canny_db(model)
-    '''
-    '''
     gr.HTML(
         """
         <div style="text-align: justify; max-width: 1200px; margin: 20px auto;">
@@ -85,7 +85,6 @@ with gr.Blocks(css='style.css') as demo:
         </h3>
         </div>
         """)
-
 
 if on_huggingspace:
     demo.queue(max_size=20)
